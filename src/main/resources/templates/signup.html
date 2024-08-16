@@ -7,7 +7,80 @@
 </head>
 <body>
 <section>
-    <h1>this is signup page</h1>
+    <div class="container">
+     <div class="row ">
+
+         <div class="col-md-8 offset-md-2">
+
+             <div class="my-card mt-3">
+
+                 <div th:if="${session.message}" th:class="${session.message.type}" class="alert alert-primary" role="alert">
+                     <p th:text="${session.message.content}"></p>
+
+                     <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+                 </div>
+                 <h1 class="text-center">Register Here</h1>
+
+                 <form action="" th:action="@{/do_register}" method="post" th:object="${user}">
+                   <!--  name field -->
+                     <div class="form-group">
+                         <label for="userName">Your Name</label>
+
+                         <input type="text" class="form-control"
+                                name="name"
+                                id="userName"
+                                th:value="${user.name}"/>
+
+                     </div>
+
+                     <!--  email field -->
+                     <div class="form-group">
+                         <label for="userEmail">Email address</label>
+
+                         <input type="email" class="form-control"
+                                name="email"
+                                id="userEmail" aria-describedby="emailHelp"
+                                th:value="${user.email}"/>
+
+                     </div>
+
+                     <!--  password field -->
+                     <div class="form-group">
+                         <label for="userPassword">Password</label>
+
+                         <input type="password" class="form-control"
+                                name="password"
+                                id="userPassword"
+                         />
+
+                     </div>
+
+                     <!-- user about field -->
+                     <div class="form-group mt-4">
+                             <textarea rows="10" class="form-control"
+                                       name="about"
+                                       placeholder="Enter something about yourself"
+                                       th:value="${user.about}"></textarea>
+                     </div>
+
+                     <div class="form-group form-check">
+                         <label for="agreement">Accept terms and conditions</label>
+                         <input type="checkbox" name="agreement" class="form-check-input" id="agreement"/>
+                     </div>
+
+                     <div class="container mt-4 text-center">
+                         <button type="submit" class="btn bg-primary text-white">
+                             submit
+                         </button>
+
+                         <button type="reset" class="btn btn-warning text-white">Reset</button>
+                     </div>
+                 </form>
+             </div>
+
+         </div>
+     </div>
+    </div>
 </section>
 </body>
 </html>
