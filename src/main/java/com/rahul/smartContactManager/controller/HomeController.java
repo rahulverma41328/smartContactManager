@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @Controller
 public class HomeController {
 
@@ -42,7 +44,7 @@ public class HomeController {
 
     // handler for registering user
     @RequestMapping(value = "/do_register",method = RequestMethod.POST)
-    public String registerUser(@ModelAttribute("user") User user, @RequestParam(value = "agreement",
+    public String registerUser(@Valid @ModelAttribute("user") User user, @RequestParam(value = "agreement",
             defaultValue = "false") boolean agreement, Model model, HttpSession session){
 
         try{

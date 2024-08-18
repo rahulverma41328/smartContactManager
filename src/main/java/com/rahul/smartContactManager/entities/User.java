@@ -15,6 +15,7 @@ public class User {
 
     private String name;
 
+
     @Column(unique = true)
     private String email;
     private String password;
@@ -27,7 +28,6 @@ public class User {
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Contact> contacts = new ArrayList<>();
-
     public User() {
     }
 

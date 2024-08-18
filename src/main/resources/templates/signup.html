@@ -17,7 +17,6 @@
                  <div th:if="${session.message}" th:class="${session.message.type}" class="alert alert-primary" role="alert">
                      <p th:text="${session.message.content}"></p>
 
-                     <th:block th:text="${#session.removeAttribute('message')}"></th:block>
                  </div>
                  <h1 class="text-center">Register Here</h1>
 
